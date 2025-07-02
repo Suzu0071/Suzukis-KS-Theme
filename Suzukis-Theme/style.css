@@ -1,0 +1,677 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('Ubuntu-R.ttf') format('truetype');
+}
+
+:root {
+    --background-img: url("./images/girls-are-now-praying.gif");
+    --text: white;
+    --text-inv: black;
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+    --active: #404E57;
+    --color-1: #ED6500;
+    --color-2: #B10080;
+    --color-3: #009384;
+    --color-4: #A7E100;
+    --error: #981E1F;
+    --warning: #f9a825;
+    --echo: #367554;
+    --lines: #cccccc;
+    --switch-scale-bg: #3584e4;
+}
+
+* {
+    color: var(--text);
+    font-size: KS_FONT_SIZEpx;
+    -GtkComboBox-appears-as-list: 0;
+    text-shadow: none;
+    box-shadow: none;
+    border: 0;
+}
+
+button:disabled {
+    opacity: .5;
+}
+
+list row,
+treeview.view,
+window {
+    background-image: var(--background-img);
+    background-color: none;
+    -gtk-icon-shadow: none;
+}
+
+treeview.view{
+    padding-right: 0.25em;
+}
+
+junction {
+    background-color: var(--bg-overlay);
+}
+
+switch slider {
+    border: 0;
+}
+
+switch {
+    margin: 0.75em;
+    min-width: 5em;
+    min-height: 2.5em;
+    border: 0;
+    border-radius: 3em;
+}
+
+treeview.view check {
+    min-height: 2em;
+    min-width: 2em;
+    background-image: none;
+}
+
+treeview.view check:checked {
+    background-image: none;
+    -gtk-icon-source: url("./styles/complete.svg");
+}
+
+button {
+    background-image: none;
+    background-color: var(--bg-overlay);
+    margin: .2em;
+    padding: 0.25em;
+    border-radius: 0;
+    border: 0;
+    -gtk-icon-shadow: none;
+}
+
+.active image,
+button:active,
+.button_active,
+button.active {
+    background-color: var(--active);
+}
+
+button:disabled,
+button.color1:disabled,
+button.color2:disabled,
+button.color3:disabled,
+button.color4:disabled {
+    border: 0;
+}
+
+button:disabled label,
+button.color1:disabled label,
+button.color2:disabled label,
+button.color3:disabled label,
+button.color4:disabled label {
+    color: grey;
+}
+
+button.color1,
+button.color2,
+button.color3,
+button.color4 {
+    padding: 0.33em;
+    padding-bottom: 0.1em;
+}
+
+button.color1 {
+    border-bottom: .4em solid var(--color-1);
+}
+
+button.color2 {
+    border-bottom: .4em solid var(--color-2);
+}
+
+button.color3 {
+    border-bottom: .4em solid var(--color-3);
+}
+
+button.color4 {
+    border-bottom: .4em solid var(--color-4);
+}
+
+button.status {
+    background-color: var(--bg-overlay);
+}
+
+button.file-list {
+    margin: 0;
+}
+
+button.update {
+    background: var(--color-3);
+    border: .4em solid var(--color-3);
+    border-radius: 0.4em;
+    font-weight: bold;
+}
+
+button.invalid {
+    background: var(--error);
+    border: .4em solid var(--error);
+    border-radius: 0.4em;
+    font-weight: bold;
+}
+
+combobox button {
+    border: .05em solid var(--bg-overlay);
+    padding: 0 0.7em;
+    border-radius: 0.7em;
+}
+
+combobox arrow {
+    min-width: 1em;
+    background-color: var(--bg-overlay);
+}
+
+combobox arrow:disabled {
+-gtk-icon-source: None;
+}
+
+cellview {
+    padding: 0.5em 0.25em 0.5em 0;
+    font-size: 0.91em;
+}
+
+entry {
+    font-size: 1em;
+    background-color: var(--active);
+    border: .2em solid var(--bg-overlay);
+    padding: .2em;
+    margin-right: .5em;
+}
+
+entry image {
+    margin: 0 .1em;
+    border-radius: 1em;
+    padding: .5em;
+}
+
+label {
+    color: var(--text);
+}
+
+menu {
+    background-color: var(--bg-overlay);
+    border: .1em solid var(--lines);
+}
+
+menuitem {
+    background-color: var(--bg-overlay);
+    border: .1em solid var(--lines);
+    border-bottom: 0;
+    border-top: 0;
+}
+
+trough {
+    min-height: 2em;
+    background-color: var(--active);
+    color: var(--text);
+    border: 1px solid var(--text-inv);
+}
+
+trough highlight,
+trough progress {
+    min-height: 2em;
+    background-color: var(--switch-scale-bg);
+    color: var(--text);
+    border: 1px solid var(--text-inv);
+}
+
+trough progress.left {
+    border: 0px;
+}
+
+scale {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+scale mark {
+    color: var(--text);
+}
+
+scale trough slider {
+    min-height: 2em;
+    min-width: 2em;
+}
+
+scrollbar,
+scrollbar button,
+scrollbar trough {
+    border: none;
+    background-color: var(--bg-overlay);
+    min-height: 1em;
+}
+
+scrollbar slider {
+    min-width: 2.5em;
+    border-radius: .7em;
+    background-color: var(--active);
+}
+
+scrollbar.vertical.with-steppers {
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true;
+}
+
+scrollbar.vertical.with-steppers button.down {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+scrollbar.vertical.with-steppers button.up {
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+
+undershoot.top,
+undershoot.bottom {
+    background-image: none;
+}
+
+spinner {
+    animation-timing-function: steps(10);
+}
+
+separator {
+    margin: 1em 2em;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+textview,
+textview text {
+    background: transparent;
+    font-family: var(--Ubuntu);
+}
+
+textview .time {
+    color: var(--lines);
+}
+
+trough {
+    margin: .5em .5em;
+}
+
+.action_bar :disabled{
+    opacity: .6;
+}
+
+.title_bar {
+    min-height: 2em;
+}
+
+.content {
+    margin: 0 .1em;
+}
+
+.dialog {
+    border: .1em solid var(--text-inv);
+    padding: 2.5em;
+    background-color: var(--text-inv);
+    margin: 1em;
+}
+
+.dialog button {
+    padding: 1.5em 0.2em;
+    margin-top: 1em;
+}
+
+.horizontal_togglebuttons_active {
+    background-color: var(--active);
+    font-weight: 600;
+}
+
+.horizontal_togglebuttons {
+    border-style: solid;
+    border-color: var(--lines);
+    border-width: .15em;
+    border-right-width: 0;
+    margin: 0;
+    min-height: 2.9em;
+}
+
+.horizontal_togglebuttons_smaller {
+    min-height: 0;
+}
+
+.horizontal_togglebuttons:first-child {
+    border-top-left-radius: .75em;
+    border-bottom-left-radius: .75em;
+    margin-left: .25em;
+}
+
+.horizontal_togglebuttons:last-child {
+    border-top-right-radius: .75em;
+    border-bottom-right-radius: .75em;
+    border-right-width: .15em;
+    margin-right: .25em;
+}
+
+.fan_slider {
+    margin: 0 1em 0 1em;
+    color: var(--text);
+}
+
+.frame-item {
+    min-height: 4.5em;
+    padding: .2em .3em;
+    border-bottom: 1px solid rgba(255,255,255,0.05)
+}
+
+.heatergraph {
+    min-height: 350px;
+}
+
+.heater-list scrollbar slider{
+    min-width: 1.5em;
+}
+
+.heater-grid {
+    margin-right: .1em;
+}
+
+.heater-grid label {
+    min-height: 0em;
+    padding: 0;
+    margin: 0;
+}
+
+.heater-grid button{
+    margin: .2em;
+    min-height: 2.9em;
+    padding: 0 .5em;
+}
+
+.keyboard_matchbox {
+    margin-top: 42px;
+}
+
+.keyboard_pad {
+    margin: 0.05em;
+    padding: 0.0em;
+    border-radius: 0.7em;
+}
+
+.message_popup_popover {
+    border: 0;
+    background-color: Transparent;
+    padding: 0;
+}
+
+.message_popup {
+    border: .1em solid var(--lines);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0;
+}
+
+.message_popup button{
+    padding: 1em;
+}
+
+.message_popup_echo,
+.message_popup_echo button {
+    background-color: var(--echo);
+}
+
+.message_popup_warning,
+.message_popup_warning button {
+    background-color: var(--warning);
+}
+
+.message_popup_error,
+.message_popup_error button {
+    background-color: var(--error);
+}
+
+.numpad_key {
+    border: .15em;
+    border-style: solid;
+    border-color: var(--lines);
+}
+
+.numpad_tleft {
+    border-bottom: 0;
+    border-right: 0;
+    border-top-left-radius: .7em;
+    margin: .15em 0 0 .15em;
+}
+
+.numpad_top {
+    border-bottom: 0;
+    border-right: 0;
+    margin: .15em 0 0 0;
+}
+
+.numpad_tright {
+    border-bottom: 0;
+    border-top-right-radius: .7em;
+    margin: .15em .15em 0 0;
+}
+
+.numpad_left {
+    border-right: 0;
+    border-bottom: 0;
+    margin: 0 0 0 .15em;
+}
+
+.numpad_button {
+    border-right: 0;
+    border-bottom: 0;
+    margin: 0;
+}
+
+.numpad_right {
+    border-bottom: 0;
+    margin: 0 .15em 0 0;
+}
+
+.numpad_bleft {
+    border-right: 0;
+    border-bottom-left-radius: .7em;
+    margin: 0 0 .15em .15em;
+}
+
+.numpad_bottom {
+    border-right: 0;
+    margin: 0 0 .15em 0;
+}
+
+.numpad_bright {
+    border-bottom-right-radius: .7em;
+    margin: 0 .15em .15em 0;
+}
+
+.printing-filename {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-right: .25em;
+}
+
+.printing-info {
+    margin-right: .25em;
+}
+.printing-info button {
+    margin: 0 .1em;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: .5em;
+}
+
+.printing-info-secondary label {
+    margin-left: .75em;
+}
+
+.printing-status {
+    font-style: italic;
+    margin-right: .25em;
+    font-weight: bold;
+}
+
+.printing-progress-text {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.printing-status-label {
+    padding-top: .25em;
+    padding-bottom: .15em;
+    font-size: 1.25em;
+}
+
+.print-filename {
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+
+}
+
+.print-info {
+    font-size: 0.95em;
+}
+
+.updater-item {
+    min-height: 3em;
+    padding: .2em;
+}
+
+.message {
+    border: .1em solid var(--error);
+    font-size: 1em;
+    padding: 2.5em;
+    color: var(--text);
+    background-color: var(--error);
+}
+
+.message button {
+    background-color: var(--text);
+    color: var(--text-inv);
+    padding: 2em 2.5em 2em 2.5em;
+}
+
+.system-program-grid {
+    padding: 0.25em;
+    padding-right: .5em;
+    padding-bottom: 0;
+}
+
+.warning {
+    background-color: rgba(30, 204, 39, 0.7);
+}
+
+.error {
+    background-color: rgba(204, 30, 30, 0.7);
+}
+
+popover {
+    background-color: var(--bg-overlay);
+    border: 0.1em solid white;
+    padding: 0em;
+}
+
+popover button {
+    background-color: var(--bg-overlay);
+    padding: 1em 3.1em;
+    margin: 0;
+}
+
+.lock
+.lock button
+.lock button:hover,
+.lock button:focus,
+.lock button:active {
+    border: 0;
+    margin: 0;
+    background-color: Transparent;
+}
+
+.lockscreen_entry {
+    margin: 2em;
+}
+
+.lockscreen_button {
+    padding: 2em;
+}
+
+.screensaver,
+.screensaver button,
+.screensaver button:hover,
+.screensaver button:focus,
+.screensaver button:active {
+    background-color: black;
+    border: 0;
+    margin: 0;
+}
+
+.option_slider_max trough highlight,
+trough progress {
+    background-color: var(--error);
+}
+
+.filament_sensor {
+    border-radius: 3em;
+}
+
+.filament_sensor switch {
+    margin: 0;
+}
+
+.filament_sensor_detected {
+    background-color: var(--echo);
+}
+
+.filament_sensor_empty {
+    background-color: var(--error);
+}
+
+.buttons_slim,
+.buttons_slim label {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.graph_label {border-left-width: .4em; border-left-style: solid;}
+
+button.graph_label {padding-left: 0.25em;}
+
+.dialog-error {
+    border-bottom: .4em solid var(--error);
+}
+
+.dialog-warning {
+    border-bottom: .4em solid var(--warning);
+}
+
+.dialog-info {
+    border-bottom: .4em solid var(--color-4);
+}
+
+.dialog-default {
+    border-bottom: .4em solid var(--color-3);
+}
+
+.dialog-secondary {
+    border-bottom: .4em solid var(--color-2);
+}
+
+.dialog-primary {
+    border-bottom: .4em solid var(--color-1);
+}
+
+.dialog .image-button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0.25em;
+}
+
+flowboxchild {
+    padding: 0;
+}
+
+flowbox button {
+    margin: 0.1em;
+    padding: .5em;
+}
+
+keyboard_box {
+    padding: 0 20em;
+}
